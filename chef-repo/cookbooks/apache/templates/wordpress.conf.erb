@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+	DocumentRoot <%= node['apache']['wp_location'] %>
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+	
+	<Directory <%= node['apache']['wp_location'] %>>
+        AllowOverride All
+    </Directory>
+</VirtualHost>

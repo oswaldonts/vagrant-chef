@@ -1,0 +1,5 @@
+ALTER USER "root"@"localhost" IDENTIFIED WITH mysql_native_password BY "<%= node['mysql']['db_root_password'] %>";
+CREATE DATABASE IF NOT EXISTS <%= node['mysql']['wp_db_name'] %> DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+CREATE USER "<%= node['mysql']['wp_db_user'] %>"@"localhost" IDENTIFIED BY "<%= node['mysql']['wp_db_password'] %>";
+GRANT ALL PRIVILEGES ON wordpress.* TO "<%= node['mysql']['wp_db_user'] %>"@"localhost" WITH GRANT OPTION;
+FLUSH PRIVILEGES;
