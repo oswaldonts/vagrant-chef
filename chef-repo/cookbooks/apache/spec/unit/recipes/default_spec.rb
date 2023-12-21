@@ -7,14 +7,14 @@ require 'chefspec'
 
 # Cookbook:: apache
 describe 'apache::default' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) } 
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
 
-#validación de paquetes necesarios para Wordpress
+  #validación de paquetes necesarios para Wordpress
   it 'installs necessary packages' do
     expect(chef_run).to install_package('apache2')
   end
   
-#validación del estado del servicio
+  #validación del estado del servicio
   it 'service status' do
     expect(chef_run).to enable_service('apache2')
 	expect(chef_run).to start_service('apache2')

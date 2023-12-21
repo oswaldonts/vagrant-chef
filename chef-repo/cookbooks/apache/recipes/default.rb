@@ -7,7 +7,7 @@ package "apache2"
 
 service "apache2" do
   supports :status => true
-  action :nothing
+  action :enable
 end
 
 template "apache2.conf" do
