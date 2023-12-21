@@ -1,10 +1,10 @@
 execute "wp_cli" do
     command <<-EOH
-        cd /home/vagrant;
+        cd /opt;
         curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar;
         chmod +x wp-cli.phar && sudo cp wp-cli.phar /usr/local/bin/wp;
     EOH
-    not_if "test -f /home/vagrant/wp-cli.phar"
+    not_if "test -f /opt/wp-cli.phar"
 end
 
 
