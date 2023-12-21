@@ -45,12 +45,16 @@ describe 'php::default' do
 end
 
 # Cookbook:: mysql
-describe 'mysql::default' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
+describe 'mysql tests' do
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04') }
 
   context 'with default recipe' do
-    it 'creates configuration files' do
-      expect(chef_run).to create_template('/opt/script.sql')
+    it 'has wordpress db name equals to wpdb' do
+      expect(chef_run.node['mysql']['wp_db_name']).to eq('wpdb')
+    end
+
+    it 'has wordpress db user name equals to wpuser' do
+      expect(chef_run.node['mysql']['wp_db_user']).to eq('wpuser')
     end
   end
 end
