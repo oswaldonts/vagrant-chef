@@ -6,9 +6,8 @@
 require 'chefspec'
 
 # Cookbook:: apache
-describe 'apache2 tests' do
-  platform 'ubuntu'
-#   let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
+describe 'apache::default' do
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
 
   context 'with default recipe' do
     #validación de paquetes necesarios para Wordpress
@@ -30,9 +29,8 @@ end
 
 
 # Cookbook:: php
-describe 'php tests' do
-  platform 'ubuntu'
-#   let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
+describe 'php::default' do
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
 
   context 'with default recipe' do
     #validación de paquetes necesarios para Wordpress
@@ -47,9 +45,8 @@ describe 'php tests' do
 end
 
 # Cookbook:: mysql
-describe 'mysql tests' do
-  platform 'ubuntu'
-#   let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
+describe 'mysql::default' do
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
 
   context 'with default recipe' do
     it 'creates configuration files' do
