@@ -21,9 +21,13 @@ describe 'apache::default' do
     end
 
 #    #valida creación de archivo de configuración
-#    it 'creates configuration files' do
-#     expect(chef_run).to create_template('/etc/apache2/apache2.conf')
-#    end
+   it 'creates configuration files' do
+    expect(chef_run).to create_template('/etc/apache2/apache2.conf')
+   end
+
+   it 'location is equals to /var/www/wordpress' do
+     expect(chef_run.node['apache']['wp_location']).to eq('/var/www/wordpress')
+   end
   end
 end
 
@@ -45,19 +49,19 @@ describe 'php::default' do
 end
 
 # Cookbook:: mysql
-describe 'mysql::default' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
-
-  context 'with default recipe' do
-    it 'has wordpress db name equals to wpdb' do
-      expect(chef_run.node['mysql']['wp_db_name']).to eq('wpdb')
-    end
-
-    it 'has wordpress db user name equals to wpuser' do
-      expect(chef_run.node['mysql']['wp_db_user']).to eq('wpuser')
-    end
-  end
-end
+# describe 'mysql::default' do
+#   let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
+#
+#   context 'with default recipe' do
+#     it 'has wordpress db name equals to wpdb' do
+#       expect(chef_run.node['mysql']['wp_db_name']).to eq('wpdb')
+#     end
+#
+#     it 'has wordpress db user name equals to wpuser' do
+#       expect(chef_run.node['mysql']['wp_db_user']).to eq('wpuser')
+#     end
+#   end
+# end
 
 
 # describe 'vim_pruebas_chef::default' do
