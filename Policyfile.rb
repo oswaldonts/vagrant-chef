@@ -13,4 +13,4 @@ default_source :supermarket
 run_list 'apache::default'
 
 # Specify a custom source for a single cookbook:
-cookbook 'apache', path: './chef-repo/cookbooks/apache'
+cookbook 'apache', path: '.'

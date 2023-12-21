@@ -16,7 +16,7 @@ describe 'apache2 tests' do
     end
 
     #validación del estado del servicio
-    it 'is service enabled' do
+    it 'has service enabled' do
       expect(chef_run).to enable_service('apache2')
     end
 
