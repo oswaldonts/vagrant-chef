@@ -7,7 +7,7 @@ require 'chefspec'
 
 # Cookbook:: apache
 describe 'apache2 tests' do
-  platform: 'ubuntu'
+  platform 'ubuntu'
 #   let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
 
   context 'with default recipe' do
@@ -31,7 +31,7 @@ end
 
 # Cookbook:: php
 describe 'php tests' do
-  platform: 'ubuntu'
+  platform 'ubuntu'
 #   let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
 
   context 'with default recipe' do
@@ -48,7 +48,7 @@ end
 
 # Cookbook:: mysql
 describe 'mysql tests' do
-  platform: 'ubuntu'
+  platform 'ubuntu'
 #   let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
 
   context 'with default recipe' do
