@@ -45,8 +45,8 @@ describe 'php::default' do
 end
 
 # Cookbook:: mysql
-describe 'mysql tests' do
-  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04') }
+describe 'mysql::default' do
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version:'20.04').converge(described_recipe) }
 
   context 'with default recipe' do
     it 'has wordpress db name equals to wpdb' do
