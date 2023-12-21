@@ -1,0 +1,9 @@
+{
+  "run_list": [
+    "recipe[apache::default]",
+    "recipe[php::default]",
+    "recipe[mysql::default]",
+    "recipe[wordpress::default]"
+  ]
+}
+  
